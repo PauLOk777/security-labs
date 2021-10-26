@@ -2,7 +2,9 @@ package com.paulok777;
 
 import javafx.util.Pair;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Stream.iterate;
@@ -13,16 +15,15 @@ public class SingleByteXorCipher {
         return iterate(-128, n -> n + 1)
                 .limit(256)
                 .map(n -> new Pair<>(n, singleXorCipher(cipherText, n.byteValue())))
-//                .filter(encodedText -> Pattern.compile("[A-Za-z\\s\\d-,.:;/+=!@#&()\\[\\]]+").matcher(encodedText).matches())
+                .filter(pair -> Pattern.compile("[A-Za-z\"\\s\\d-,.:;/+=!@#&*^%$()}{“”\\[\\]]+").matcher(pair.getValue()).matches())
                 .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
     }
 
     public String singleXorCipher(String text, byte key) {
-        StringBuilder sb = new StringBuilder();
+        byte[] encodedText = new byte[text.length()];
         for (int i = 0; i < text.length(); i++) {
-            char res = (char) (text.charAt(i) ^ key);
-            sb.append(res);
+            encodedText[i] = (byte) (text.charAt(i) ^ key);
         }
-        return sb.toString();
+        return new String(encodedText, StandardCharsets.UTF_8);
     }
 }
