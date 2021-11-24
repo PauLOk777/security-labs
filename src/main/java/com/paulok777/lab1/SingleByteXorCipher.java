@@ -1,4 +1,4 @@
-package com.paulok777;
+package com.paulok777.lab1;
 
 import javafx.util.Pair;
 

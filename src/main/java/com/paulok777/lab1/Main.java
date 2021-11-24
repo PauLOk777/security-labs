@@ -1,4 +1,4 @@
-package com.paulok777;
+package com.paulok777.lab1;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;

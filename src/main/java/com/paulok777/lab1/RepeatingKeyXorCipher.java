@@ -1,4 +1,4 @@
-package com.paulok777;
+package com.paulok777.lab1;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import javafx.util.Pair;
 import org.apache.commons.lang3.StringUtils;
 
-import static com.paulok777.SingleByteXorCipher.TEXT_PATTERN;
+import static com.paulok777.lab1.SingleByteXorCipher.TEXT_PATTERN;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class RepeatingKeyXorCipher {
