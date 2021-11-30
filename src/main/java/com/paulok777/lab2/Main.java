@@ -13,7 +13,7 @@ public class Main {
         // 1-3 stroka = For(1), The pangs of dispriz'd love, the l
         // 1-4 stroka = The insolence of office, and the s (4)
         // 1-5 stroka = t patient merit of th'unworthy (5)
-        // 1-5 stroka = When he himself might his quietus (5)
+        // 1-6 stroka = When he himself might his quietus (6)
         // 1-7 stroka = h a bare bodkin? Who would fard(7)
         // 1-16 stroka = sicklied o'er with the pale cas(16)
         // William Shakespeare
