@@ -104,7 +104,8 @@ public class PasswordGenerator {
 
     private String getRandomPasswordFromTop25() {
         try {
-            return Files.readAllLines(Paths.get("top25passwords.txt")).get(secureRandom.nextInt(25));
+            return Files.readAllLines(Paths.get("top25passwords.txt"))
+                    .get(secureRandom.nextInt(25)).split(". ")[1];
         } catch (IOException e) {
             e.printStackTrace();
             return null;
