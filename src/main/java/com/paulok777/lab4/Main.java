@@ -27,12 +27,11 @@ public class Main {
         for (String s : passwordsForMd5) {
             md5Hashes.add(hashGenerator.getMd5Hash(s));
         }
+        writeToFile(md5Hashes, new File("md5Hashes.csv"));
 
         for (String s : passwordsForArgon2) {
             argon2Hashes.add("\"" + hashGenerator.getArgonHash(s) + "\"");
         }
-
-        writeToFile(md5Hashes, new File("md5Hashes.csv"));
         writeToFile(argon2Hashes, new File("argon2Hashes.csv"));
     }
 
