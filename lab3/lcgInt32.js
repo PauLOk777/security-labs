@@ -1,12 +1,12 @@
 const axios = require('axios');
 
 const m = BigInt(Math.pow(2, 32));
-const id = 45535326;
+const id = 45390263;
 const amountToBet = 10;
 const attempts = 1;
 
 async function hacLcg() {
-    // await createAccount(id);
+    await createAccount(id);
     const states = await getStates(id, 1, 1);
     console.log(states);
     const solution = solveEquation(states);
@@ -67,7 +67,7 @@ function modInverse(number, mod) {
     let x = 1;
     let y = 0;
     for (let i = s.length - 2; i >= 0; --i) {
-        [x, y] = [y, x - y * Math.floor(s[i].number / s[i].b)]; 
+        [x, y] = [y, x - y * Math.floor(s[i].number / s[i].b)];
     }
     return BigInt(((y % mod) + mod) % mod);
 }
