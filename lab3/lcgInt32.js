@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const m = BigInt(Math.pow(2, 32));
-const id = 45536;
+const id = 45535326;
 const amountToBet = 10;
 const attempts = 1;
 
@@ -51,24 +51,25 @@ function solveEquation(states) {
 
 // formula from stackoverflow
 function modInverse(number, mod) {
-  number = ((number % mod) + mod) % mod;
+    [number, mod] = [Number(number), Number(mod)]
+    number = ((number % mod) + mod) % mod;
 
-  const s = [];
-  let b = mod;
-  while (b) {
-    [number, b] = [b, number % b];
-    s.push({ number, b });
-  }
-  if (a !== 1) {
-    throw new Error(" inverse does not exists");
-  }
+    const s = [];
+    let b = mod;
+    while (b) {
+        [number, b] = [b, number % b];
+        s.push({ number, b });
+    }
+    if (number !== 1) {
+        throw new Error(" inverse does not exists");
+    }
 
-  let x = 1;
-  let y = 0;
-  for (let i = s.length - 2; i >= 0; --i) {
-    [x, y] = [y, x - y * Math.floor(s[i].a / s[i].b)];
-  }
-  return BigInt(((y % m) + m) % m);
+    let x = 1;
+    let y = 0;
+    for (let i = s.length - 2; i >= 0; --i) {
+        [x, y] = [y, x - y * Math.floor(s[i].number / s[i].b)]; 
+    }
+    return BigInt(((y % mod) + mod) % mod);
 }
 
 async function earnMoney(userId, solution, amountToBet, attempts) {
